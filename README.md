@@ -1,31 +1,31 @@
-# Второй Практикум по формальным языкам и трансляциям 
+# Earley-s-Broadcasts
 
-# Алгоритм и реализация
 
-Был реализован алгоритм Эрли для проверки принадлежности слова к языку, задаваемому контекстно свободной грамматикой. 
-* Реализаия контекстно свободной грамматики приведена в файлах _Grammar.h_ и _Grammar.cpp_ 
-* Реализация самого алгоритма приведена в виде класса _Algo_, который реализован в файлах _Algo.h_ и _Algo.cpp_ 
-* Для хранения состояний на каждой итерации алгоритма создана таблица на основе _std::vector<std::map<char, std::vector< ..._, которая позволяет получить все состояния, в которых точка стоит перед заданным символом, что позволяет удобно реализовывать операцию _Complete_ и достигать квадратичную сложность для однознаных
-грамматик 
-* Суммарное время работы - O(n^3) и O(n^2) для однозначных грамматик, расход памяти - O(n^2), где n - длина входного слова, размер грамматики считается постоянной и не указан в оценке. 
+# Algorithm and implementation
 
-# Тестирование и сборка 
+Earley's algorithm was implemented for checking the belonging of a word to a language specified by a context free grammar.
+* Implementation of context free grammar is given in files _Grammar.h_ and _Grammar.cpp_
+* The implementation of the algorithm itself is given in the form of the _Algo_ class, which is implemented in the _Algo.h_ and _Algo.cpp_ files
+* To store the states at each iteration of the algorithm, a table was created based on _std :: vector <std :: map <char, std :: vector <..._, which allows you to get all the states in which the point is in front of a given character, which allows it is convenient to implement the _Complete_ operation and achieve quadratic complexity for one-known
+grammar
+* The total running time is O (n ^ 3) and O (n ^ 2) for unambiguous grammars, memory consumption is O (n ^ 2), where n is the length of the input word, the grammar size is considered constant and is not indicated in the evaluation.
 
-Сборка производится с помощью _cmake_, собрать проект можно с помощью 
+# Testing and building
+
+The assembly is done using _cmake_, you can build the project using
 * mkdir build
 * cd build
 * cmake ..
-* make 
+* make
 
-Далее можно проверить работу с помощью автоматического тестирования запустив _./run_tests_, тесты написаны в файле _test.cpp_. Результат покрытия тестами можно посмотреть с помощью _make code_coverage_. Так же можно тестировать вручную с помощью _./task_solver_. Пример входных данных:
+Then you can check the work using automatic testing by running _./run_tests_, tests are written in the file _test.cpp_. Test coverage result can be viewed using _make code_coverage_. You can also test manually using _./task_solver_. Sample input:
 
-aabbab // входное слово
+aabbab // input word
 
-2 // колличество правил
+2 // number of rules
 
 S ->
 
 S -> aSbS
 
-Даже если правая часть правила пустая строка, нужно ставить пробел после стрелочки.
-
+Even if the right side of the rule is an empty line, you need to put a space after the arrow.
